@@ -36,8 +36,6 @@ async function removeNote(id) {
 
   await fs.writeFile(notesPath, JSON.stringify(notes))
   console.log(chalk.bgGreen("Заметка была удалена"))
-
-  printNotes()
 }
 
 async function editNote(id, newTitle) {
