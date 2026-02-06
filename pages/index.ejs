@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= title %>
+    </title>
+
+    <style>
+        body {
+            text-align: center;
+            background-color: rgb(9, 9, 76);
+
+            color: #fff;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .btn {
+            margin: 10px;
+        }
+
+        button {
+            cursor: pointer;
+
+            &:hover {
+                background-color: rgb(136, 136, 136);
+            }
+        }
+
+        .notes-list {
+            width: 400px;
+            margin: 0 auto;
+        }
+
+        .note {
+            display: flex;
+            justify-content: space-evenly;
+
+            width: 400px;
+            text-align: left;
+            padding: 15px 5px;
+
+            border-bottom: 1px solid #fff;
+
+
+            span {
+                width: 200px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>
+            <%= title %>
+        </h1>
+    </div>
+
+    <% if (created) { %>
+
+        <span>Заметка добавлена </span>
+
+        <% } %>
+
+            <form action="/" method="post">
+                <div class="form-group">
+                    <input type="text" class="form-control" name="title">
+                </div>
+
+                <button class="btn" type="submit">
+                    Создать
+                </button>
+            </form>
+
+            <% if (notes.length) { %>
+
+                <div class="notes-list">
+                    <% notes.forEach(note=> { %>
+                        <div class="note">
+                            <span>
+                                <%= note.title %>
+                            </span>
+
+                            <button data-type="edit" data-id="<%= note.id %>">Редактировать</button>
+                            <button data-type="remove" data-id="<%= note.id %>">&times;</button>
+                        </div>
+                        <% }) %>
+                </div>
+
+                <% } else { %>
+
+                    <span>Заметок нет</span>
+
+                    <% } %> %>
+
+
+                        <script src="/app.js"></script>
+
+
+</body>
+
+</html>
