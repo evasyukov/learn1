@@ -11,7 +11,7 @@ document.addEventListener("click", (event) => {
     const note = event.target.closest(".note").querySelector("span")
     const titleValue = event.target.closest(".note").querySelector("span").textContent
 
-    const newTitleValue = prompt("Введите новое название", titleValue)
+    const newTitleValue = prompt("Введите новое название", titleValue.trim())
 
     if (newTitleValue === null) {
       return

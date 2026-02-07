@@ -56,5 +56,9 @@ app.delete("/:id", async (req, res) => {
 })
 
 app.listen(port, () => {
-  console.log(chalk.green(`Сервер запущен на порту ${port}`))
+  console.log(
+    chalk.green(`Сервер запущен на порту ${port}
+Открыть страницу можно по адресу http://localhost:${port}/
+    `),
+  )
 })
