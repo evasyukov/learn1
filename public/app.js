@@ -9,7 +9,7 @@ document.addEventListener("click", (event) => {
 
   if (event.target.dataset.type === "edit") {
     const note = event.target.closest(".note").querySelector("span")
-    const titleValue = event.target.closest(".note").querySelector("span").textContent
+    const titleValue = note.textContent
 
     const newTitleValue = prompt("Введите новое название", titleValue.trim())
 
